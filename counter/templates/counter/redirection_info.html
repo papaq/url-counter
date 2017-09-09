@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Info</title>
+</head>
+<body>
+<form action="{% url 'counter:history_of_url' redirection.url.short_code %}">
+    <input type="submit" value="Back" />
+</form>
+<p>
+    Site: {{ redirection.url.url }}
+</p>
+<p>
+    Visited: {{ redirection.datetime }}
+</p>
+<p>
+    IP: {{ redirection.ip }}
+</p>
+<p>
+    <pre>{{ redirection.sensitive }}</pre>
+</p>
+</body>
+</html>

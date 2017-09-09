@@ -1,0 +1,14 @@
+*.pyc
+*~
+*.gif
+*.jpg
+*.jpeg
+__pycache__
+uniqvenv
+db.sqlite3
+/static
+.DS_Store
+media/users/
+*/migrations/*_auto_*
+*/migrations/????_*
+*/migrations/*_initial.py

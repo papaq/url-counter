@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History</title>
+</head>
+<body>
+<form action="{% url 'counter:list_url' %}">
+    <input type="submit" value="Back" />
+</form>
+<label>
+    {{ url.url }} {{ url.short_code }} {{ url.counter }}
+</label>
+{% for redirect in records %}
+    <div id="{{ redirect.auto_id }}">
+        <label>
+            <a href="{% url 'counter:redirection_info' redirect.url.short_code redirect.pk %}">
+                {{ redirect.datetime }} {{ redirect.ip }}
+            </a>
+        </label>
+    </div>
+{% endfor %}
+</body>
+</html>

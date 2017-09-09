@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+<form action="{% url 'counter:shorten_url' %}">
+    <input type="submit" value="Main" />
+</form>
+{% for url in urls %}
+    <div id="{{ url.auto_id }}">
+        <label>
+            <a href="{% url 'counter:history_of_url' url.short_code %}">{{ url.url }}</a> {{ url.counter }}
+        </label>
+    </div>
+{% endfor %}
+</body>
+</html>

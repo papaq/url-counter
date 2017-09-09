@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shorten url</title>
+</head>
+<body>
+{% if saved %}
+    <div id="saved">
+        <label>
+            Address {{ saved }} was saved. Short address: {{ short_url }}
+        </label>
+    </div>
+{% endif %}
+
+<form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% for field in form %}
+        <div class="form-group">
+            <div class="input-group">
+
+                <div class="">
+                    <input class='form-control' id="{{ field.auto_id }}" maxlength="2000" type="text"
+                           placeholder="Input your URL"
+                           name="{{ field.name }}">
+                </div>
+
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-success">Shorten</button>
+                </span>
+            </div>
+        </div>
+    {% endfor %}
+</form>
+
+<form action="{{ list_url_address }}">
+    <input type="submit" value="Show all links" />
+</form>
+
+</body>
+</html>
